@@ -1,5 +1,6 @@
 package mcjty.lib.blocks;
 
+import com.cleanroommc.modularui.factory.TileEntityGuiFactory;
 import crazypants.enderio.api.redstone.IRedstoneConnectable;
 import mcjty.lib.McJtyLib;
 import mcjty.lib.McJtyRegister;
@@ -401,14 +402,19 @@ public abstract class GenericBlock<T extends GenericTileEntity, C extends Contai
             if (world.isRemote) {
                 return true;
             }
-            TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
+            BlockPos pos = new BlockPos(x, y, z);
+            TileEntity te = world.getTileEntity(pos);
 //            if (isBlockContainer && !tileEntityClass.isInstance(te)) {
 //                return false;
 //            }
             if (checkAccess(world, player, te)) {
                 return true;
             }
-            player.openGui(modBase, getGuiID(), world, x, y, z);
+            if (te instanceof GenericTileEntity gte && gte.useMui()) {
+                TileEntityGuiFactory.INSTANCE.open(player, pos);
+            } else {
+                player.openGui(modBase, getGuiID(), world, x, y, z);
+            }
             return true;
         }
         return false;

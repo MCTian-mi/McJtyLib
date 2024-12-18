@@ -42,6 +42,7 @@ dependencies {
     compileOnly rfg.deobf("curse.maven:redstone-flux-270789:2920436")
     compileOnly rfg.deobf("curse.maven:hwyla-253449:2568751")
     compileOnly rfg.deobf("curse.maven:tesla-244651:2487959")
+    api rfg.deobf(files("lib/modularui-2.5.0-rc2-dev.jar"))
 
 //    compileOnly rfg.deobf("curse.maven:interaction-wheel-256287:2441962")
 //    compileOnly rfg.deobf("curse.maven:ynet-an-xnet-fork-999559:5243319") // XNet-1.8.3-ynet

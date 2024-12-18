@@ -5,6 +5,7 @@ import mcjty.lib.base.GeneralConfig;
 import mcjty.lib.bindings.IAction;
 import mcjty.lib.bindings.IValue;
 import mcjty.lib.container.InventoryHelper;
+import mcjty.lib.gui.IMuiHolder;
 import mcjty.lib.multipart.PartSlot;
 import mcjty.lib.network.*;
 import mcjty.lib.typed.Key;
@@ -56,7 +57,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-public class GenericTileEntity extends TileEntity implements ICommandHandler, IClientCommandHandler {
+public class GenericTileEntity extends TileEntity implements ICommandHandler, IClientCommandHandler, IMuiHolder {
 
     public static final IValue<?>[] EMPTY_VALUES = new IValue[0];
     public static final IAction[] EMPTY_ACTIONS = new IAction[0];
